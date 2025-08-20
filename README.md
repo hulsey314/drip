@@ -74,8 +74,6 @@ platformio device monitor
 
 ## Images
 
-Add images of your setup here (place inside the `images/` folder and link them):
-
 ![Setup](images/1-Setup.jpg)
 ![Layout](images/Layout.jpg)
 ![Stepper Motor Wiring](images/Stepper-Motor-Wiring.jpg)
