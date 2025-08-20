@@ -1,16 +1,14 @@
 # ESP32-S3 Stepper Controller
 
-This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 stepper driver**, rotary encoder (jog wheel), and buttons to control a stepper motor. It also integrates **Bluetooth Low Energy (BLE)** for future expansion.
+This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 stepper driver**, rotary encoder (jog wheel), and buttons to control a stepper motor.
 
 ---
 
 ## Features
 
-* Control stepper motor direction and speed with a jog wheel (rotary encoder)
-* Press jog encoder for **continuous forward run** until released
-* Dedicated button for additional stepper actions
-* BLE server code included for future remote control and monitoring
-* Designed for **Freenove ESP32-S3 board** with pins optimized for working peripherals
+* Adjust speed and distance for single "auto" drip, then press Auto button
+* Manually control stepper motor direction and speed with a jog wheel
+* Press jog wheel for **continuous forward run** until released
 
 ---
 
@@ -42,9 +40,9 @@ This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 steppe
 
 ## Usage
 
-1. Rotate the jog encoder → Stepper moves relative to rotation
-2. Press jog encoder → Stepper runs continuously forward until released
-3. Press extra button → Custom stepper action (e.g., reverse jog or home)
+1. Rotate or Hold the Manual Knob → Stepper moves relative to rotation - Prep a drop
+2. Adjust Speed and Distance encoder knobs as desired
+3. Press Auto button → Stepper runs selected Distance at selected Speed
 
 Serial Monitor output will confirm encoder and button activity.
 
@@ -85,11 +83,8 @@ Add images of your setup here (place inside the `images/` folder and link them):
 
 ## Next Steps
 
-* ✅ Add Bluetooth support for wireless jog and button control
-* ✅ Expand UI with a mobile app or BLE MIDI commands
-* 🔲 Add OLED or e-ink screen for real-time feedback
-* 🔲 Explore Wi-Fi control & MQTT integration
-* 🔲 Develop PCB version for easier wiring
+* 🔲 Try IR drip sensor to auto prep a drip
+* 🔲 Test with smaller/cheaper servos
 
 ![Concept UI](images/concept_ui.jpg)
 
