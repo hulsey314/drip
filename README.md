@@ -76,9 +76,10 @@ platformio device monitor
 
 Add images of your setup here (place inside the `images/` folder and link them):
 
-![ESP32-S3 Board](images/esp32s3.jpg)
-![Stepper Motor](images/stepper.jpg)
-![Wiring Setup](images/wiring.jpg)
+![Setup](images/1-Setup.jpg)
+![Layout](images/Layout.jpg)
+![Stepper Motor Wiring](images/Stepper-Motor-Wiring.jpg)
+Here is the wiring for the stepper motor.  These connections are more fragile than I expected...
 
 ---
 
@@ -87,7 +88,10 @@ Add images of your setup here (place inside the `images/` folder and link them):
 * 🔲 Try IR drip sensor to auto prep a drip
 * 🔲 Test with smaller/cheaper servos
 
-![Concept UI](images/concept_ui.jpg)
+![Drip Detector - Back](images/Future--Drip-Detector--back.jpg)
+![Drip Detector - Front (Closed)](images/Future--Drip-Detector--front--closed.jpg)
+![Drip Detector - Front (Open)](images/Future--Drip-Detector--front--opened.jpg)
+![Drip Detector - Front (Inside)](images/Future--Drip-Detector--front--inside.jpg)
 
 ---
 
