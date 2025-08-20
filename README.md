@@ -1,14 +1,13 @@
 # ESP32-S3 Stepper Controller
 
-This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 stepper driver**, rotary encoder (jog wheel), and buttons to control a stepper motor.
+This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 stepper driver**, to test using a peristaltic pump to create drips with precise timing
 
 ---
 
 ## Features
 
-* Adjust speed and distance for single "auto" drip, then press Auto button
-* Manually control stepper motor direction and speed with a jog wheel
-* Press jog wheel for **continuous forward run** until released
+* Adjust speed and distance for single "auto" drip, then press Auto button.  Ideally, this button will drop a single drip and prep the next drip.
+* Manually move stepper motor forward or back to prep the next drip test (press Manual knob to run forward until released)
 
 ---
 
@@ -17,8 +16,8 @@ This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 steppe
 * [Freenove ESP32-S3 WROOM Board](https://github.com/Freenove/Freenove_ESP32_S3_WROOM)
 * [TMC2209 Stepper Driver](https://www.trinamic.com/products/integrated-circuits/details/tmc2209/)
 * NEMA 17 Stepper Motor (or similar)
-* Rotary encoder (jog wheel with push button)
-* Extra push button for motor control
+* Rotary encoders (jog wheel with push button)
+* Push button for motor control
 
 ---
 
@@ -45,6 +44,8 @@ This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 steppe
 3. Press Auto button → Stepper runs selected Distance at selected Speed
 
 Serial Monitor output will confirm encoder and button activity.
+
+Values are stored in the ESP32's memory, so testing can be done without a computer and later plugged into a serial monitor to read Speed/Distance values.
 
 ---
 
