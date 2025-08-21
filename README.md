@@ -99,10 +99,10 @@ Here is the wiring for the stepper motor.  These connections are more fragile th
 **Front of drip detector with cover on** Cover blocks light from the IR sensors.
 
 ![Drip Detector - Front (Open)](images/Future--Drip-Detector--front--opened.jpg)
-**Front of drip detector with cover off**
+**Front of drip detector with cover off** 
 
 ![Drip Detector - Front (Inside)](images/Future--Drip-Detector--front--inside.jpg)
-** Front, inside view of drop detector **
+**Front, inside view of drop detector** 
 ---
 
 ## License
