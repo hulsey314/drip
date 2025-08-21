@@ -3,25 +3,26 @@
 #include <Preferences.h>
 #include <TMCStepper.h>
 
-// -------- Pins (your latest mapping) --------
-#define ENC1_A 1   // JOG CLK
-#define ENC1_B 2   // JOG DT
-#define ENC2_A 42  // SPEED CLK
-#define ENC2_B 41  // SPEED DT
-#define ENC3_A 48  // DIST CLK
-#define ENC3_B 47  // DIST DT
+// -------- Pins --------
+#define ENC1_A 1          // Manual Knob A
+#define ENC1_B 2          // Manual Knob B
+#define ENC2_A 42         // Speed Knob A
+#define ENC2_B 41         // Speed Knob B
+#define ENC3_A 48         // Distance Knob A
+#define ENC3_B 47         // Distance Knob B
 
-#define BTN_RUN 21        // RUN button (to GND)
-#define BTN_JOG_HOLD 40   // <-- NEW: jog encoder push (to GND). If flaky, try 40.
+#define BTN_RUN 21        // Auto Button
+#define BTN_JOG_HOLD 40   // Manual Knob press
 
-#define STEP_PIN 4
-#define DIR_PIN 5
-#define EN_PIN 15
-#define LED_PIN 48 // LED on Freenove Wroom
+#define STEP_PIN 4        // Motor driver - Step
+#define DIR_PIN 5         // Motor driver - Direction
+#define EN_PIN 15         // Motor driver - Enable
+
+#define LED_PIN 48        // LED on Freenove Wroom
 
 // -------- TMC2209 UART --------
 #define RX_PIN 16
-#define TX_PIN 17
+#define TX_PIN 17  // Use a 1k resistor here
 #define R_SENSE 0.11f
 #define DRIVER_ADDRESS 0b00
 
@@ -90,7 +91,7 @@ bool btn_run_last = true;
 uint32_t btn_run_lastChangeMs = 0;
 uint32_t btn_run_lastFiredMs  = 0;
 
-// NEW: jog-hold debounce/state
+// Jog-hold debounce/state
 bool btn_jog_last = true;
 uint32_t btn_jog_lastChangeMs = 0;
 bool jog_hold_active = false;
@@ -124,8 +125,14 @@ void planOneRun() {
 }
 
 void requestRun() {
-  // Don't start preset moves while manually jogging
-  if (jog_hold_active) return;
+  if (jog_hold_active) return;  // ignore during hold
+
+  // If we're idle but have a stale distanceToGo (from previous jogs), clear it.
+  if (!runningPreset && stepper.distanceToGo() != 0) {
+    stepper.stop();
+    stepper.setCurrentPosition( stepper.currentPosition() );
+  }
+
   if (!runningPreset && stepper.distanceToGo() == 0) {
     planOneRun();
   } else {
@@ -133,6 +140,7 @@ void requestRun() {
     Serial.printf("(queued +1) total queued=%u\n", queuedRuns);
   }
 }
+
 
 void tryDequeueRun() {
   if (queuedRuns > 0) {
@@ -241,9 +249,15 @@ void loop() {
     } else {
       // stop continuous jog
       jog_hold_active = false;
-      stepper.setSpeed(0);
+
+      // --- CLEAR STALE OFFSET FROM runSpeed() ---
+      stepper.setSpeed(0);                         // stop speed mode
+      stepper.stop();                              // cancel any accel move
+      stepper.setCurrentPosition( stepper.currentPosition() ); // sync target=current
+
       Serial.println("JOG HOLD: stop");
     }
+
   }
 
   // --- Motion service ---
