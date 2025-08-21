@@ -2,7 +2,7 @@
 
 **WARNING --** A bug was found in the original script that causes the Auto button to not work after holding and releasing the Manual knob.  Update to the latest version, or as a workaround, make a manual adjustment by *turning* the Manual knob before pressing the Auto button.
 
-This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 stepper driver**, to test using a peristaltic pump to create drips with precise timing
+This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 stepper driver**, to test using a peristaltic pump to create drips with precise timing.
 
 ---
 
@@ -93,10 +93,16 @@ Here is the wiring for the stepper motor.  These connections are more fragile th
 * 🔲 Test with smaller/cheaper servos
 
 ![Drip Detector - Back](images/Future--Drip-Detector--back.jpg)
-![Drip Detector - Front (Closed)](images/Future--Drip-Detector--front--closed.jpg)
-![Drip Detector - Front (Open)](images/Future--Drip-Detector--front--opened.jpg)
-![Drip Detector - Front (Inside)](images/Future--Drip-Detector--front--inside.jpg)
+**Back of drip detector prototype** The drip hose goes above an IR distance sensor.
 
+![Drip Detector - Front (Closed)](images/Future--Drip-Detector--front--closed.jpg)
+**Front of drip detector with cover on** Cover blocks light from the IR sensors.
+
+![Drip Detector - Front (Open)](images/Future--Drip-Detector--front--opened.jpg)
+**Front of drip detector with cover off**
+
+![Drip Detector - Front (Inside)](images/Future--Drip-Detector--front--inside.jpg)
+** Front, inside view of drop detector **
 ---
 
 ## License
