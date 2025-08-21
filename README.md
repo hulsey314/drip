@@ -81,7 +81,7 @@ platformio device monitor
 ## Images
 
 ![Setup](images/1-Setup.jpg)
-![Layout](images/Layout.jpg)
+![Layout](images/Layout-with-outlines-and-labels-v1.jpg)
 ![Stepper Motor Wiring](images/Stepper-Motor-Wiring.jpg)
 Here is the wiring for the stepper motor.  These connections are more fragile than I expected...
 
