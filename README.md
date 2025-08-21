@@ -1,4 +1,6 @@
-# ESP32-S3 Stepper Controller
+# Drip Prototyping Board
+
+**WARNING --** A bug was found in the original script that causes the Auto button to not work after holding and releasing the Manual knob.  Update to the latest version, or as a workaround, make a manual adjustment by *turning* the Manual knob before pressing the Auto button.
 
 This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 stepper driver**, to test using a peristaltic pump to create drips with precise timing
 
@@ -23,17 +25,21 @@ This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 steppe
 
 ## Wiring Overview
 
-| Component          | ESP32-S3 Pin        |
-| ------------------ | ------------------- |
-| Stepper DIR        | GPIO 12             |
-| Stepper STEP       | GPIO 14             |
-| Stepper ENABLE     | GPIO 27             |
-| Jog Encoder A      | GPIO 4              |
-| Jog Encoder B      | GPIO 5              |
-| Jog Encoder Button | GPIO 15             |
-| Extra Button       | GPIO 21 (suggested) |
+| Component          | ESP32-S3 Pin |
+| ------------------ | ------------ |
+| Manual Knob A      | GPIO 1       |
+| Manual Knob B      | GPIO 2       |
+| Speed Knob A       | GPIO 42      |
+| Speed Knob B       | GPIO 41      |
+| Distance Knob A    | GPIO 48      |
+| Distance Knob B    | GPIO 47      |
+| Auto Button        | GPIO 21      |
+| Driver - Step      | GPIO 4       |
+| Driver - Direction | GPIO 5       |
+| Driver - Enable    | GPIO 15      |
+| Driver - RX        | GPIO 16      |
+| Driver - RX        | GPIO 17      |
 
-*(You can adjust pins in `main.cpp` as needed.)*
 
 ---
 
