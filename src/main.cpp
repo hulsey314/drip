@@ -127,19 +127,24 @@ void planOneRun() {
 void requestRun() {
   if (jog_hold_active) return;  // ignore during hold
 
-  // If we're idle but have a stale distanceToGo (from previous jogs), clear it.
+  // Clear stale offset from jog-hold
   if (!runningPreset && stepper.distanceToGo() != 0) {
     stepper.stop();
-    stepper.setCurrentPosition( stepper.currentPosition() );
+    stepper.setCurrentPosition(stepper.currentPosition());
   }
 
+  // ---> Print current settings
+  Serial.printf("[AUTO] speed=%d sps, distance=%d steps\n",
+                speed_sps, distance_steps);
+
   if (!runningPreset && stepper.distanceToGo() == 0) {
-    planOneRun();
+    planOneRun();                         // planOneRun() also prints RUN -> ...
   } else {
     if (queuedRuns < 10) queuedRuns++;
     Serial.printf("(queued +1) total queued=%u\n", queuedRuns);
   }
 }
+
 
 
 void tryDequeueRun() {
