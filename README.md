@@ -18,8 +18,9 @@ This project uses an **ESP32-S3 WROOM (Freenove board)** with a **TMC2209 steppe
 * [Freenove ESP32-S3 WROOM Board](https://github.com/Freenove/Freenove_ESP32_S3_WROOM)
 * [TMC2209 Stepper Driver](https://www.trinamic.com/products/integrated-circuits/details/tmc2209/)
 * NEMA 17 Stepper Motor (or similar)
-* Rotary encoders (jog wheel with push button)
+* Rotary encoders
 * Push button for motor control
+* Peristaltic pump design: https://www.thingiverse.com/thing:642192 by CopabX
 
 ---
 
@@ -56,6 +57,8 @@ Values are stored in the ESP32's memory, so testing can be done without a comput
 ---
 
 ## Installation
+
+This was originally done in Visual Studio Code with PlatformIO to better support a bluetooth midi module that wasn't flashing from Arduino IDE.  With bluetooh support currently removed, either IDE should work for flashing updates and reading the serial output.
 
 ### Prerequisites
 
